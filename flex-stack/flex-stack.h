@@ -21,7 +21,7 @@ class flexstack {
 
   void push(int x) {
     // check if full
-    if (n == a.length) resize();
+    if (n + 1 > a.length) resize();
     // put x in next empty slot and advance the index
     a[n++] = x;
   }

@@ -6,7 +6,7 @@
 class Date {
 private:
     int year, month, day;
-    string alternate;
+    std::string alternate;
 public:
     Date();
 };

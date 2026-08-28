@@ -86,7 +86,7 @@ Implementen los siguientes metodos, y verifiquen en main.cpp que las prueas de d
 
  - Constructors
    - Date() – Default constructor. Initializes the object to 1903-01-01 (January 1, 1903)
-   - Date(aYear: int, aMonth: int, aDay: int) – Initializes the object with the given values if they represent a valid date. If not, it should throw a std::invalid_argument exception.
+   - Date(aYear: int, aMonth: int, aDay: int) – Initializes the object with the given values if they represent a valid date. If not, it should throw a [std::invalid_argument](https://cppreference.com/cpp/error/invalid_argument) exception.
    - Date(aYear: int, aMonth: int, aDay: int, altDay: string) - Initializes the object with the given values if they represent a valid date. If not, it should throw a std::invalid_argument exception. The `altDay` argument should denote a alternate weekday (e.g. Date(2021,12,8, "viernes") represents the second date in the above example calendar.
 
  - valid(year: int, month: int, day: int): returns true if values represent a valid date (from the year 1903 on).

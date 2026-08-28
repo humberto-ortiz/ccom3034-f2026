@@ -65,6 +65,21 @@ Y entonces pueden correr el programa de prueba:
 [doctest] Status: SUCCESS!
 ```
 
+### Compilacion sin cmake
+
+Si cmake es un problema, pueden compilar el programa con g++:
+
+```
+g++ Date.cpp main.cpp -o main
+./main
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+[doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped
+[doctest] assertions: 1 | 1 passed | 0 failed |
+[doctest] Status: SUCCESS!
+```
+
 ## Metodos
 
 Implementen los siguientes metodos, y verifiquen en main.cpp que las prueas de doctest funcionan.

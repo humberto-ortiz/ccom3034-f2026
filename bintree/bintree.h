@@ -6,13 +6,15 @@
 // Released under
 // https://creativecommons.org/licenses/by/2.5/ca/
 
+template<class Node>
 class BTNode {
  public:
-  BTNode *left;
-  BTNode *right;
-
+  Node *left;
+  Node *right;
+  Node *parent;
+  
   BTNode() {
-    left = right = nullptr;
+    left = right = parent = nullptr;
   }
 };
 
@@ -49,8 +51,39 @@ class BinaryTree {
     return suma;
   }
 
+  int size2() {
+    // size sin recursion
+    Node *prev = nullptr;
+    Node *u = root;
+    Node *next;
+    int tamaño = 0;
+
+    while (nullptr != u) {
+      if (prev == u->parent) {
+	tamaño++;
+	if (u->left != nullptr) 
+	  next = u->left;
+	else if (u->right != nullptr)
+	  next = u->right;
+	else next = u->parent;
+      } else if (prev == u->left) {
+	if (u->right != nullptr) 
+	  next = u->right;
+	else
+	  next = u->parent;
+      } else {
+	next = u->parent;
+      }
+      prev = u;
+      u = next;
+    }
+    return tamaño;
+  }
+    
   // see stubs in height.cpp
   int height();
   int height(Node *);
   
 };
+
+class BTNode1 : public BTNode<BTNode1> { };

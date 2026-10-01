@@ -65,6 +65,46 @@ template<class Node, class T>
     }
     return true;
   }
+
+  void splice(Node *u) {
+    Node *s, *p;
+    if (nullptr != u->left) {
+      s = u->left;
+    } else {
+      s = u->right;
+    }
+    if (u == root) {
+      root = s;
+      p = nullptr;
+    } else {
+      p = u->parent;
+      if (p->left == u) {
+	p->left = s;
+      } else {
+	p->right = s;
+      }
+    }
+    if (nullptr != s) {
+      s->parent = p;
+    }
+    // aqui no. Lo borro en remove 
+    // delete u;
+  }
+
+  void remove(Node *u) {
+    if (nullptr == u->left || nullptr == u->right) {
+      splice(u);
+      delete u;
+    } else {
+      Node *w = u->right;
+      while (nullptr != w->left) {
+	w = w->left;
+      }
+      u->value = w->value;
+      splice(w);
+      delete w;
+    }
+  }
 };
 
 template<class T>

@@ -62,6 +62,7 @@ template<class Node, class T>
       } else {
 	return false;
       }
+      u->parent = p;
     }
     return true;
   }

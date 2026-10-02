@@ -7,7 +7,7 @@
 #include <thread>
 #include "sllist.h"
 
-#define STACK_OPS 10		// how many entries to push and pop
+#define STACK_OPS 100		// how many entries to push and pop
 
 SLList<int> l;			// a global list, both threads will use this same list
 

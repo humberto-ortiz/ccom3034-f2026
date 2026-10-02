@@ -69,7 +69,7 @@ $ ./main
 ## Splitting into multiple threads.
 
 To speed up the program, we can run in multiple threads:
-```
+```c++
 // fast.cpp threaded test singly linked list stacks
 // Copyright 2026 Humberto Ortiz Zuazaga
 // Released under
@@ -131,12 +131,13 @@ Aborted (core dumped)
 ```
 
 We can wait before popping, by adding a loop in pop_task():
-```
+```c++
 void pop_task() {
+  int value;
   for (int i = 0; i < STACK_OPS; i++) {
-    while (l.is_empty()) ; // espera
-    std::cout << "Pop " << l.pop() << std::endl;
-    l.pop();
+	while (l.is_empty()) ; // espera
+    value = l.pop();
+    std::cout << "Pop " << value << std::endl;
   }
 }
 ```

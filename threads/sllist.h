@@ -8,6 +8,8 @@
 #ifndef SLLIST_H
 #define SLLIST_H
 
+#include <stdexcept>
+
 template<class T>
 class SLList {
   class Node {
@@ -50,20 +52,17 @@ class SLList {
   }
 
   T pop() {
-    Node *u = head;
-    T x = u->value;
-    head = u->next;
-    delete u;
-    return x;
+    if (nullptr == head) {
+      throw std::runtime_error("El stack esta vacio");
+    } else {
+      Node *u = head;
+      T x = u->value;
+      head = u->next;
+      delete u;
+      return x;
+    }
   }
-  T dequeue() {
-    return pop();
-  }
-  void enqueue(T x) {
-    Node *u = new Node(x);
-    tail->next = u;
-    tail = u;
-  }
+
   bool is_empty() {
     return head == nullptr;
   }

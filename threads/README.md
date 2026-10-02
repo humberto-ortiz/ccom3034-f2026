@@ -91,8 +91,10 @@ void push_task() {
 }
 
 void pop_task() {
+  int value;
   for (int i = 0; i < STACK_OPS; i++) {
-    std::cout << "Pop " << l.pop() << std::endl;
+    value = l.pop();
+    std::cout << "Pop " << value << std::endl;
   }
 }
 
